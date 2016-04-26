@@ -47,14 +47,17 @@ def cross_entropy_loss(y, yhat):
 
   Args:
     y:    tf.Tensor with shape (n_samples, n_classes). One-hot encoded.
-    yhat: tf.Tensorwith shape (n_sample, n_classes). Each row encodes a
+    yhat: tf.Tensor with shape (n_samples, n_classes). Each row encodes a
           probability distribution and should sum to 1.
   Returns:
     out:  tf.Tensor with shape (1,) (Scalar output). You need to construct this
           tensor in the problem.
   """
   ### YOUR CODE HERE
-  raise NotImplementedError
+  #raise NotImplementedError
+  
+  out = - tf.reduce_sum(tf.to_float(y) * tf.log(yhat))
+
   ### END YOUR CODE
   return out
 
